@@ -15,6 +15,9 @@ public class FingerHitSystem : MonoBehaviour
     public event Action OnDeath;
     public event Action OnInvincibilityEnd;
 
+    public AudioClip tingle;
+    public AudioSource audioSource;
+
     public float CurrentHealth { get; private set; }
     public float MaxHealth => _statsHandler.CurrentStats.maxHealth;
 
@@ -56,6 +59,7 @@ public class FingerHitSystem : MonoBehaviour
         else
         {
             OnDamage?.Invoke();
+            audioSource.PlayOneShot(tingle);
         }
         if (CurrentHealth <= 0f)
         {

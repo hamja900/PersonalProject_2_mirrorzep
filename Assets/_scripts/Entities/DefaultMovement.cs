@@ -14,11 +14,6 @@ public class DefaultMovement : MonoBehaviour
     private Vector2 _knockBack = Vector2.zero;
     private float knockBackDuration = 0.0f;
 
-    private bool _isMoving = false;
-    [SerializeField] private AudioClip footsteps;
-    [SerializeField] private AudioSource audioSource;
-    
-
 
     
 
@@ -32,7 +27,6 @@ public class DefaultMovement : MonoBehaviour
     private void Start()
     {
         _controller.OnMoveEvent += Move;
-        _controller.OnMoveEvent += FootStepSound;
     }
 
     private void FixedUpdate()
@@ -64,23 +58,5 @@ public class DefaultMovement : MonoBehaviour
         }
 
         _rigidbody.velocity = direction;
-    }
-    private void FootStepSound(Vector2 direction)
-    {
-        if(_isMoving)
-        {
-            if(audioSource.isPlaying)
-            {
-                audioSource.Stop();
-            }
-            else
-            {
-                audioSource.Play();
-            }
-        }
-        else
-        {
-            audioSource.Stop();
-        }
     }
 }
