@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
+using Unity.Properties;
 using UnityEngine;
 
 public class DefaultMovement : MonoBehaviour
@@ -12,6 +13,13 @@ public class DefaultMovement : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Vector2 _knockBack = Vector2.zero;
     private float knockBackDuration = 0.0f;
+
+    private bool _isMoving = false;
+    [SerializeField] private AudioClip footsteps;
+    [SerializeField] private AudioSource audioSource;
+    
+
+
     
 
     private void Awake()
@@ -24,7 +32,7 @@ public class DefaultMovement : MonoBehaviour
     private void Start()
     {
         _controller.OnMoveEvent += Move;
-        
+        _controller.OnMoveEvent += FootStepSound;
     }
 
     private void FixedUpdate()
@@ -38,6 +46,7 @@ public class DefaultMovement : MonoBehaviour
     private void Move(Vector2 direction)
     {
         _movementDirection = direction;
+        
     }
 
     public void ApplyKnockback(Transform other, float power, float duration)
@@ -55,5 +64,23 @@ public class DefaultMovement : MonoBehaviour
         }
 
         _rigidbody.velocity = direction;
+    }
+    private void FootStepSound(Vector2 direction)
+    {
+        if(_isMoving)
+        {
+            if(audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+            else
+            {
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            audioSource.Stop();
+        }
     }
 }

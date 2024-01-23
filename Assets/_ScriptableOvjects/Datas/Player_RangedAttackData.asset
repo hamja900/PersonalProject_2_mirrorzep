@@ -23,7 +23,7 @@ MonoBehaviour:
   knockbackPower: 0
   knockbackTime: 0
   bulletNameTag: Finger
-  duration: 1
+  duration: 2
   spread: 0
   numberofProjectilesPerShot: 1
   multipleProjectilesAngle: 7
