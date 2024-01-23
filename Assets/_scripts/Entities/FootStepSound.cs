@@ -4,18 +4,24 @@ using UnityEngine;
 
 public class FootStepSound : MonoBehaviour
 {
-
-    //파티클시스템을 응용해서 걷는 사운드를 넣으려고 했으나 적용안됨
-
-    [SerializeField] private bool createSoundOnWalk=true;
     [SerializeField] private AudioClip footSteps;
     [SerializeField] private AudioSource audioSource;
 
+    private Animator animator;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+    }
     public void CreateSoundFootstep()
     {
-        if (createSoundOnWalk)
+        if (animator.GetBool("IsWalk"))
         {
             audioSource.PlayOneShot(footSteps);
+        }
+        else
+        {
+            audioSource.Stop();
         }
     }
 }

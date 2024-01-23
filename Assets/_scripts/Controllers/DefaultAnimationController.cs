@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DefaultAnimationController : DefaultAnimation
 {
-    private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    private static readonly int IsWalk = Animator.StringToHash("IsWalk");
     private static readonly int IsHit = Animator.StringToHash("IsHit");
 
     private FingerHitSystem _hitSystem;
@@ -35,7 +35,7 @@ public class DefaultAnimationController : DefaultAnimation
 
     private void Move(Vector2 obj)
     {
-        animator.SetBool(IsWalking, obj.magnitude > .5f);
+        animator.SetBool(IsWalk, obj.magnitude > .5f);
     }
 
     private void Hit()
