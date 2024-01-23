@@ -19,6 +19,7 @@ public class StartBtn : MonoBehaviour
     public Transform spawnPoint;
     public GameObject canvas;
     public GameObject UICanvas;
+    public GameObject namePlease;
 
     private void Awake()
     {
@@ -39,16 +40,14 @@ public class StartBtn : MonoBehaviour
 
     public void GameStart()
     {
-        if (characterSelect.isPlayer1==true)
+        if (characterSelect.isPlayer1==true && playerNameInput.text.Length>0)
         {
             GameObject instance = Instantiate(player1, spawnPoint, transform);
             instance.transform.parent = spawnPoint;
             canvas.SetActive(false);
             UICanvas.SetActive(true);
-            
-
         }
-        else
+        else if (characterSelect.isPlayer1==false && playerNameInput.text.Length>0)
         {
             GameObject instance = Instantiate(player2, spawnPoint, transform);
             instance.transform.parent = spawnPoint;
@@ -56,5 +55,9 @@ public class StartBtn : MonoBehaviour
             UICanvas.SetActive(true) ;
         }
 
+        else
+        {
+            namePlease.SetActive(true);
+        }
     }
 }
