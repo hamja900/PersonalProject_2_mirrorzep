@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6166844454833103841}
   - component: {fileID: 4743577374483312985}
   - component: {fileID: -5911992211356620538}
+  - component: {fileID: -3464912187770802598}
   m_Layer: 8
   m_Name: Tutor
   m_TagString: Untagged
@@ -111,6 +112,18 @@ MonoBehaviour:
     speed: 0
     attackSO: {fileID: 0}
   statsModifiers: []
+--- !u!114 &-3464912187770802598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506728980801371411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c8dd418711bb7843a9fc450300854c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7464650510415120968
 GameObject:
   m_ObjectHideFlags: 0

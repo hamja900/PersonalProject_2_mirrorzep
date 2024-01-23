@@ -9,16 +9,22 @@ public class DefaultAnimationController : DefaultAnimation
     private static readonly int IsHit = Animator.StringToHash("IsHit");
 
     private FingerHitSystem _hitSystem;
+    private DefaultMovement _movement;
     protected override void Awake()
     {
         base.Awake();
         _hitSystem = GetComponent<FingerHitSystem>();
+        _movement = GetComponent<DefaultMovement>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        controller.OnMoveEvent += Move;
+        if(_movement != null)
+        {
+            controller.OnMoveEvent += Move;
+        }
+        
         
         if(_hitSystem != null)
         {
