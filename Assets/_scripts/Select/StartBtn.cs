@@ -41,7 +41,6 @@ public class StartBtn : MonoBehaviour
     {
         if (characterSelect.isPlayer1==true)
         {
-            Player player = new Player(playerNameSetting.PlayerName, "Player1");
             GameObject instance = Instantiate(player1, spawnPoint, transform);
             instance.transform.parent = spawnPoint;
             canvas.SetActive(false);
@@ -51,7 +50,6 @@ public class StartBtn : MonoBehaviour
         }
         else
         {
-            Player player = new Player(playerNameSetting.PlayerName, "Player2");
             GameObject instance = Instantiate(player2, spawnPoint, transform);
             instance.transform.parent = spawnPoint;
             canvas.SetActive(false) ;
